@@ -1,0 +1,83 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<%@ Register Assembly="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+    Namespace="System.Web.UI" TagPrefix="asp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>首页</title>
+    <link rel="stylesheet" href="images/style.css" type="text/css" media="all" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <div id="samheader">
+            <div id="samenu">
+                <ul class="samenua">
+                    <li class="current_page_item">
+                        <asp:HyperLink ID="HyperLinkTop1" CssClass="menuA" NavigateUrl="~/Default.aspx" runat="server">首页</asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink ID="HyperLinkTop2" CssClass="menuA" NavigateUrl="~/list.aspx?cid=1" runat="server">晴天</asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink ID="HyperLinkTop3" CssClass="menuA" NavigateUrl="~/list.aspx?cid=2"
+                            runat="server">阴天</asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink ID="HyperLinkTop4" CssClass="menuA" NavigateUrl="~/list.aspx?cid=3"
+                            runat="server">雨天</asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink ID="HyperLinkTop5" CssClass="menuA" NavigateUrl="~/list.aspx?cid=4" runat="server">其他</asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink ID="HyperLinkTop6" CssClass="menuA" NavigateUrl="~/pop.aspx" runat="server">给我留言啵</asp:HyperLink></li>
+                </ul>
+            </div>
+        </div>
+        <div id="outmain">
+            <div id="page">
+                <div id="wrap">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div id="sidebar">
+                    
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolderLeft" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <div class="sambar">
+                        <h2>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 管理员登陆</h2>&nbsp;
+                        <asp:TextBox ID="txtUsername" Text="" runat="server" CssClass="formfield" Width="46px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUsername"
+                            Display="Dynamic" ErrorMessage="*" ValidationGroup="login"></asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtPassword" Text="" runat="server" CssClass="formfield" TextMode="Password"
+                            Width="46px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword"
+                            Display="Dynamic" ErrorMessage="*" ValidationGroup="login"></asp:RequiredFieldValidator><asp:Button
+                                ID="btnLogin" runat="server" CssClass="formbutton" OnClick="btnLogin_Click" Text="登 陆"
+                                ValidationGroup="login" />
+                        <asp:Label ID="Label1" runat="server" Visible="False" Width="125px" Height="20px"></asp:Label>&nbsp;
+                        <asp:Button ID="btnRevLogin" runat="server" CssClass="formbutton" OnClick="btnRevLogin_Click"
+                            Text="重登陆" Visible="False" Width="46px" Height="25px" />
+                        <br />
+                        <asp:Panel ID="pnLogin" runat="server" Visible="False" Width="193px">
+                            &nbsp;&nbsp;<br /> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:HyperLink ID="HyperLinkPostArticle" runat="server" NavigateUrl="~/bob5_admin/post.aspx">发表文章</asp:HyperLink>
+                            <br />
+                            &nbsp;&nbsp; &nbsp;&nbsp;<asp:HyperLink ID="HyperLinkArticleManage" runat="server" NavigateUrl="~/bob5_admin/list.aspx">文章管理</asp:HyperLink>
+                            <br />
+                            &nbsp;&nbsp; &nbsp;
+                            <asp:HyperLink ID="classManage" runat="server" NavigateUrl="~/bob5_admin/ClassManage.aspx">分类管理</asp:HyperLink><br />
+                            &nbsp;
+                            <br />
+                            &nbsp; &nbsp;
+                            <asp:Button ID="btnLoginOut" runat="server" CssClass="formbutton" OnClick="btnLoginOut_Click"
+                                Text="退 出" Height="28px" Width="48px" /></asp:Panel>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            Copyright &copy; fengfenghome 
+
+        </div>
+    </form>
+</body>
+</html>

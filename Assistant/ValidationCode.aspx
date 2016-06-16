@@ -1,0 +1,1 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ValidationCode.aspx.cs" Inherits="Assistant_ValidationCode" %>
